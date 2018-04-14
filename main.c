@@ -16,6 +16,7 @@ how to use the page table and disk interfaces.
 #include <errno.h>
 
 int algorithmCode = 0; // 0 for rand, 1 for fifo, 2 for custom
+int validPagesInTable = 0; // keep track of how many pages have r/w bits set
 
 void page_fault_handler( struct page_table *pt, int page )
 {
@@ -24,7 +25,9 @@ void page_fault_handler( struct page_table *pt, int page )
   switch(algorithmCode) {
       int randNum = rand();
     case 0:
-       
+      if (validPagesInTable < page_table_get_npages(pt)) {
+        
+      }      
       break;
       // TODO implement rand
     case 1:
