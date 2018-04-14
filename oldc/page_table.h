@@ -7,10 +7,6 @@
 #define PAGE_SIZE 4096
 #endif
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 struct page_table;
 
 typedef void (*page_fault_handler_t) ( struct page_table *pt, int page );
@@ -63,9 +59,5 @@ void page_table_print_entry( struct page_table *pt, int page );
 /* Print out the state of every page in a page table. */
 
 void page_table_print( struct page_table *pt );
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif
